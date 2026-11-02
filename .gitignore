@@ -1,24 +1,33 @@
-# ModelSim / QuestaSim simulation files & directories
+# ModelSim / QuestaSim Simulation Artifacts
 work/
-vsim.wlf
-*.wlf
-modelsim.ini
+**/work/
 transcript
-*.log
+**/transcript
+*.wlf
+**/*.wlf
+vsim.wlf
+modelsim.ini
+**/modelsim.ini
+*.mpf
+*.mti
+*.cr.mti
 *.vstf
-*.syn
-*.orig
+*.log
+covhtmlreport/
 
-# EDA tool temporary & generated files
+# EDA & Tooling Temporary Files
+*.vcd
+*.vpd
+*.fsdb
+*.syn
 *.jou
 *.pb
-*.rpt
-.Xil/
 
-# OS and Editor metadata
+# OS & Editor generated files
 .DS_Store
 Thumbs.db
 *.swp
-*~
+*.bak
+**/*.bak
 .vscode/
 .idea/
