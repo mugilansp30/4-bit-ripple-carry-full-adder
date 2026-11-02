@@ -60,54 +60,54 @@ The top-level 4-bit adder cascades four 1-bit full adders in series:
 
 ```mermaid
 flowchart LR
-    subgraph STAGE0 ["Stage 0 (Bit 0 - LSB)"]
+    subgraph STAGE0 ["Stage 0 (LSB)"]
         A0["A[0]"]
         B0["B[0]"]
-        FA0["FA0<br/>(Full Adder)"]
+        FA0["FA0"]
         S0["SUM[0]"]
     end
 
-    subgraph STAGE1 ["Stage 1 (Bit 1)"]
+    subgraph STAGE1 ["Stage 1"]
         A1["A[1]"]
         B1["B[1]"]
-        FA1["FA1<br/>(Full Adder)"]
+        FA1["FA1"]
         S1["SUM[1]"]
     end
 
-    subgraph STAGE2 ["Stage 2 (Bit 2)"]
+    subgraph STAGE2 ["Stage 2"]
         A2["A[2]"]
         B2["B[2]"]
-        FA2["FA2<br/>(Full Adder)"]
+        FA2["FA2"]
         S2["SUM[2]"]
     end
 
-    subgraph STAGE3 ["Stage 3 (Bit 3 - MSB)"]
+    subgraph STAGE3 ["Stage 3 (MSB)"]
         A3["A[3]"]
         B3["B[3]"]
-        FA3["FA3<br/>(Full Adder)"]
+        FA3["FA3"]
         S3["SUM[3]"]
     end
 
-    CIN["CIN (External Carry-In)"] --> FA0
+    CIN["CIN"] --> FA0
     A0 --> FA0
     B0 --> FA0
     FA0 --> S0
 
-    FA0 -->|C1 (Internal Carry)| FA1
+    FA0 -->|C1| FA1
     A1 --> FA1
     B1 --> FA1
     FA1 --> S1
 
-    FA1 -->|C2 (Internal Carry)| FA2
+    FA1 -->|C2| FA2
     A2 --> FA2
     B2 --> FA2
     FA2 --> S2
 
-    FA2 -->|C3 (Internal Carry)| FA3
+    FA2 -->|C3| FA3
     A3 --> FA3
     B3 --> FA3
     FA3 --> S3
-    FA3 --> COUT["COUT (Final Carry-Out)"]
+    FA3 --> COUT["COUT"]
 ```
 
 ---
