@@ -51,26 +51,54 @@ The 4-bit adder instantiates four `full_adder_1bit` units connected in a ripple-
 
 ```mermaid
 flowchart LR
-    CIN([CIN]) --> FA0["FA0 (Bit 0)"]
-    A0([A[0]]) --> FA0
-    B0([B[0]]) --> FA0
-    FA0 --> S0([SUM[0]])
+    subgraph STAGE0 ["Stage 0 (LSB)"]
+        A0["A[0]"]
+        B0["B[0]"]
+        FA0["FA0"]
+        S0["SUM[0]"]
+    end
 
-    FA0 -- C1 --> FA1["FA1 (Bit 1)"]
-    A1([A[1]]) --> FA1
-    B1([B[1]]) --> FA1
-    FA1 --> S1([SUM[1]])
+    subgraph STAGE1 ["Stage 1"]
+        A1["A[1]"]
+        B1["B[1]"]
+        FA1["FA1"]
+        S1["SUM[1]"]
+    end
 
-    FA1 -- C2 --> FA2["FA2 (Bit 2)"]
-    A2([A[2]]) --> FA2
-    B2([B[2]]) --> FA2
-    FA2 --> S2([SUM[2]])
+    subgraph STAGE2 ["Stage 2"]
+        A2["A[2]"]
+        B2["B[2]"]
+        FA2["FA2"]
+        S2["SUM[2]"]
+    end
 
-    FA2 -- C3 --> FA3["FA3 (Bit 3)"]
-    A3([A[3]]) --> FA3
-    B3([B[3]]) --> FA3
-    FA3 --> S3([SUM[3]])
-    FA3 --> COUT([COUT])
+    subgraph STAGE3 ["Stage 3 (MSB)"]
+        A3["A[3]"]
+        B3["B[3]"]
+        FA3["FA3"]
+        S3["SUM[3]"]
+    end
+
+    CIN["CIN"] --> FA0
+    A0 --> FA0
+    B0 --> FA0
+    FA0 --> S0
+
+    FA0 -->|C1| FA1
+    A1 --> FA1
+    B1 --> FA1
+    FA1 --> S1
+
+    FA1 -->|C2| FA2
+    A2 --> FA2
+    B2 --> FA2
+    FA2 --> S2
+
+    FA2 -->|C3| FA3
+    A3 --> FA3
+    B3 --> FA3
+    FA3 --> S3
+    FA3 --> COUT["COUT"]
 ```
 
 ---
