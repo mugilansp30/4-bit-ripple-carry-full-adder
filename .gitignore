@@ -1,0 +1,24 @@
+# ModelSim / QuestaSim simulation files & directories
+work/
+vsim.wlf
+*.wlf
+modelsim.ini
+transcript
+*.log
+*.vstf
+*.syn
+*.orig
+
+# EDA tool temporary & generated files
+*.jou
+*.pb
+*.rpt
+.Xil/
+
+# OS and Editor metadata
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
